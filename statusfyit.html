@@ -3,11 +3,28 @@
 </head>
 
 <body>
-  {{> hello}}
 </body>
 
 <template name="hello">
-  <h1>Hello World!</h1>
-  {{greeting}}
-  <input type="button" value="Click" />
+  <h1>Users</h1>
+
+  <input id="new_user_but" type="button" value="Create new user" /><br /><br />
+
+  <div class="registered_users">
+    {{#each users}}
+      {{> user}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="new_user">
+  <h1>New user</h1>
+  <input type="text" id="username" /><br />
+  <input id="send" type="submit" value="Create new user" />
+</template>
+
+<template name="user">
+  <div class="user {{selected}}">
+    <span class="name">{{name}}</span>
+  </div>
 </template>
